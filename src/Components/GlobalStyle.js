@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { color } from "Components/variable";
 import reset from "styled-reset";
 
 export const GlobalStyle = createGlobalStyle`
@@ -8,10 +9,17 @@ export const GlobalStyle = createGlobalStyle`
         -moz-box-sizing: border-box; /* Firefox  */
         -webkit-box-sizing: border-box; /* Safari */
         box-sizing: border-box; /* CSS3 Standard */
-        color:#FFFFFF;
+        color:${color.white};
+        
     }
+
     a{
         text-decoration:none;
         color:inherit;
+    }
+    input{
+        &:focus{
+            outline:none;
+        }
     }
 `;

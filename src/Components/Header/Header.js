@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   HeaderFrame,
   HeaderLogo,
@@ -7,18 +7,23 @@ import {
   HeaderLink,
   HeaderSub,
   HeaderSearch,
+  HeaderSearchBar,
+  HeaderIcon,
 } from "./Header.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default () => {
   const [active, setActive] = useState(false);
+  const [showBar, setShowbar] = useState(false);
+  const clickSearch = useCallback((e) => {
+    e.preventDefault();
+    setShowbar(!showBar);
+  });
 
-  console.log(active);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       console.log(typeof window.scrollY);
-
       if (window.scrollY !== 0) {
         setActive(true);
       } else {
@@ -41,7 +46,10 @@ export default () => {
       </HeaderLinks>
       <HeaderSub>
         <HeaderSearch>
-          <FontAwesomeIcon icon={faSearch} />
+          <HeaderIcon onClick={(e) => clickSearch(e)}>
+            <FontAwesomeIcon icon={faSearch} />
+          </HeaderIcon>
+          <HeaderSearchBar showBar={showBar} />
         </HeaderSearch>
         <HeaderUser></HeaderUser>
       </HeaderSub>

@@ -14,6 +14,7 @@ export const HeaderFrame = styled.div`
   font-size: 100px;
   transition: all ease 0.5s;
   ${(props) => props.active && `background-color: ${color.black}`}
+  z-index:99999;
 `;
 export const HeaderLinks = styled.div`
   display: grid;
@@ -32,7 +33,38 @@ export const HeaderLogo = styled(Link)`
   ${center};
 `;
 export const HeaderSub = styled.div`
-  font-size: 0.15em;
+  font-size: 0.17em;
+  cursor: pointer;
+  display: flex;
 `;
-export const HeaderSearch = styled.div``;
+export const HeaderSearchBar = styled.input.attrs({
+  type: "text",
+  placeholder: "제목,사람,장르",
+})`
+  width: ${(props) => (props.showBar ? "300px" : "0")};
+  height: 35px;
+  border: 1px solid ${color.white};
+  background-color: ${color.black};
+  padding-left: 40px;
+  transition: all ease 0.5s;
+  opacity: ${(props) => (props.showBar ? "1" : "0")};
+  ::placeholder {
+    font-size: 13px;
+    color: ${color.grey};
+  }
+`;
+export const HeaderIcon = styled.div`
+  position: absolute;
+  ${center}
+  z-index:999;
+  bottom: 8px;
+  left: 10px;
+  &:active {
+    transform: scale(1.3);
+  }
+`;
+export const HeaderSearch = styled.form`
+  display: flex;
+  position: relative;
+`;
 export const HeaderUser = styled.div``;
