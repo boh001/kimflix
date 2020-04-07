@@ -29,14 +29,17 @@ export default () => {
   const playRef = useRef();
   const replay = useCallback((e) => {
     playRef.current.play();
+    setEnd(false);
   });
   const turnUp = useCallback((e) => {
     setSound(!sound);
   });
   useEffect(() => {
     setTimeout(() => {
-      playRef.current.play();
-      // playRef.current.onended = () => setEnd(!end);
+      if (!play) {
+        playRef.current.play();
+      }
+      playRef.current.onended = () => setEnd(true);
       setPlay(true);
     }, 3000);
     return clearTimeout();
@@ -68,7 +71,7 @@ export default () => {
             <FontAwesomeIcon icon={sound ? faVolumeUp : faVolumeMute} />
           </ContentControl>
         ) : (
-          <ContentControl onClick={(e) => replay(e)}>
+          <ContentControl play={play} onClick={(e) => replay(e)}>
             <FontAwesomeIcon icon={faRedo} />
           </ContentControl>
         )}

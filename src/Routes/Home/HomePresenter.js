@@ -1,6 +1,7 @@
 import React from "react";
 import TodayM from "Components/TodayM/TodayM";
 import styled from "styled-components";
+import Contents from "Components/Contents/Contents";
 
 const Absolute = styled.div`
   width: 100%;
@@ -8,14 +9,16 @@ const Absolute = styled.div`
   background-color: red;
   position: absolute;
   opacity: 0.5;
-  top: 500px;
+  top: 450px;
   padding: 45px;
 `;
 export default () => {
   return (
     <>
       <TodayM />
-      <Absolute></Absolute>
+      <Absolute>
+        <Contents />
+      </Absolute>
     </>
   );
 };

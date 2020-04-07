@@ -11,6 +11,7 @@ export const Frame = styled.div`
 export const Content = styled.video.attrs((props) => ({
   src: test,
   type: "video/mp4",
+  muted: props.sound ? false : "muted",
 }))`
   width: 100%;
   height: 100%;

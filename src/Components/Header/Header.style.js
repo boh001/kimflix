@@ -13,8 +13,8 @@ export const HeaderFrame = styled.div`
   align-items: center;
   font-size: 100px;
   transition: all ease 0.5s;
-  ${(props) => props.active && `background-color: ${color.black}`}
-  z-index:99999;
+  ${(props) => props.active && `background-color: ${color.black}`};
+  z-index: 99999;
 `;
 export const HeaderLinks = styled.div`
   display: grid;
