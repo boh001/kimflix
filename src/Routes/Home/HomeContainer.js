@@ -1,24 +1,45 @@
 import HomePresenter from "./HomePresenter";
+import { connect } from "react-redux";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { popular, latest, nowPlaying, upcoming } from "api";
+import { moviesApi } from "api";
+import { add } from "modules/reducers/count";
+const mapStateToProps = (state) => {
+  return { number: state };
+};
+const mapDispatchToProps = (dispatch) => ({
+  add: () => dispatch(add()),
+});
 
-export default () => {
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(({ number, add }) => {
+  console.log(number);
+
   const [movies, setMovies] = useState([
     { nowPlaying: null, upcoming: null, popular: null, latest: null },
   ]);
   useEffect(() => {
     async function upData() {
       try {
-        const nowPlayingD = await nowPlaying();
-        const upcomingD = await upcoming();
-        const popularD = await popular();
-        const latestD = await latest();
+        const {
+          data: { results: nowPlaying },
+        } = await moviesApi.nowPlaying();
+        const {
+          data: { results: upcoming },
+        } = await moviesApi.upcoming();
+        const {
+          data: { results: popular },
+        } = await moviesApi.popular();
+        const {
+          data: { results: latest },
+        } = await moviesApi.popular();
         setMovies({
-          nowPlaying: nowPlayingD.data.results,
-          upcoming: upcomingD.data.results,
-          popular: popularD.data.results,
-          latest: latestD.data.results,
+          upcoming,
+          popular,
+          latest,
+          nowPlaying,
         });
       } catch (error) {
         console.log(error);
@@ -29,4 +50,4 @@ export default () => {
   console.log(movies);
 
   return <HomePresenter movies={movies} />;
-};
+});
