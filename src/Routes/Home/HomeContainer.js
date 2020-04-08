@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { moviesApi } from "api";
 import { add } from "modules/reducers/count";
 const mapStateToProps = (state) => {
-  return { number: state };
+  return { number: state.count };
 };
 const mapDispatchToProps = (dispatch) => ({
   add: () => dispatch(add()),
@@ -16,6 +16,8 @@ export default connect(
   mapDispatchToProps
 )(({ number, add }) => {
   console.log(number);
+  console.log(add);
+  
 
   const [movies, setMovies] = useState([
     { nowPlaying: null, upcoming: null, popular: null, latest: null },
