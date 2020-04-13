@@ -1,27 +1,12 @@
 import HomePresenter from "./HomePresenter";
-import { connect } from "react-redux";
-import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import React from "react";
 import { useEffect } from "react";
 import { moviesApi } from "api";
-import { add } from "modules/reducers/count";
-const mapStateToProps = (state) => {
-  return { number: state.count };
-};
-const mapDispatchToProps = (dispatch) => ({
-  add: () => dispatch(add()),
-});
+import { onData } from "modules/reducers/data";
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(({ number, add }) => {
-  console.log(number);
-  console.log(add);
-  
-
-  const [movies, setMovies] = useState([
-    { nowPlaying: null, upcoming: null, popular: null, latest: null },
-  ]);
+export default () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     async function upData() {
       try {
@@ -37,19 +22,19 @@ export default connect(
         const {
           data: { results: latest },
         } = await moviesApi.popular();
-        setMovies({
+        const data = {
+          nowPlaying,
           upcoming,
           popular,
           latest,
-          nowPlaying,
-        });
+        };
+        dispatch(onData(data));
       } catch (error) {
         console.log(error);
       }
     }
     upData();
   }, []);
-  console.log(movies);
 
-  return <HomePresenter movies={movies} />;
-});
+  return <HomePresenter />;
+};
