@@ -3,7 +3,6 @@ import { PosterFrame, DetailBtn, Relative } from "./Poster.style";
 import Detail from "./Detail/Detail";
 export default ({
   poster_path,
-  backdrop_path,
   original_title,
   overview,
   release_date,
@@ -22,7 +21,6 @@ export default ({
         <DetailBtn onClick={(e) => showDetail(e)}>></DetailBtn>
       </Relative>
       <Detail
-        url={poster_path}
         des={overview}
         name={original_title}
         date={release_date}
