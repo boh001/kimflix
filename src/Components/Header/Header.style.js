@@ -13,7 +13,7 @@ export const HeaderFrame = styled.div`
   align-items: center;
   font-size: 100px;
   transition: all ease 0.5s;
-  ${(props) => props.active && `background-color: ${color.black}`};
+  ${(props) => props.scroll && `background-color: ${color.black}`};
   z-index: 99999;
 `;
 export const HeaderLinks = styled.div`
@@ -41,13 +41,13 @@ export const HeaderSearchBar = styled.input.attrs({
   type: "text",
   placeholder: "제목,사람,장르",
 })`
-  width: ${(props) => (props.showBar ? "300px" : "0")};
+  width: ${(props) => (props.search ? "300px" : "0")};
   height: 35px;
   border: 1px solid ${color.white};
   background-color: ${color.black};
   padding-left: 40px;
   transition: all ease 0.5s;
-  opacity: ${(props) => (props.showBar ? "1" : "0")};
+  opacity: ${(props) => (props.search ? "1" : "0")};
   ::placeholder {
     font-size: 13px;
     color: ${color.grey};
@@ -59,7 +59,7 @@ export const HeaderIcon = styled.div`
   z-index:999;
   bottom: 8px;
   left: 10px;
-  &:active {
+  &:scroll {
     transform: scale(1.3);
   }
 `;

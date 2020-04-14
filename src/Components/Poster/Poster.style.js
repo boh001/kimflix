@@ -27,6 +27,7 @@ export const Relative = styled.div`
   transition: all ease 0.5s;
   width: 200px;
   position: relative;
+  z-index: 999;
   cursor: pointer;
   pointer-events: ${(props) => (props.show ? "none;" : "auto;")};
   &:hover {

@@ -50,12 +50,13 @@ export const ContentLink = styled(Link)`
   font-weight: bold;
   display: flex;
   align-content: center;
+  color: black;
   transition: all ease 0.1s;
   z-index: 1;
   & > svg {
     margin-right: 10px;
   }
-  &:hover {
+  :hover {
     color: black;
     transform: scale(1.1);
     ::after {
@@ -76,6 +77,11 @@ export const ContentLink = styled(Link)`
     left: 0;
     border-radius: 3px;
   }
+`;
+export const LinkWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  color: black;
 `;
 export const ContentSub = styled.div`
   position: absolute;

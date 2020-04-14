@@ -8,7 +8,7 @@ export const ContentsFrame = styled.div`
 `;
 export const ContentsName = styled.div`
   width: 100%;
-  font-size: 0.12em;
+  font-size: 0.15em;
   font-weight: bold;
   position: absolute;
   top: 50px;

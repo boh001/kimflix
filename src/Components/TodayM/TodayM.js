@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { sound_true, end_true, play_true } from "modules/reducers/boolean";
 import {
   Frame,
   Content,
@@ -23,24 +25,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
 export default () => {
-  const [sound, setSound] = useState(false);
-  const [end, setEnd] = useState(false);
-  const [play, setPlay] = useState(false);
+  const dispatch = useDispatch();
+  const {
+    boolean: { sound, end, play },
+  } = useSelector((state) => state);
   const playRef = useRef();
   const replay = useCallback((e) => {
     playRef.current.play();
-    setEnd(false);
+    dispatch(end_true(false));
   });
   const turnUp = useCallback((e) => {
-    setSound(!sound);
+    dispatch(sound_true(!sound));
   });
   useEffect(() => {
     setTimeout(() => {
       if (!play) {
         playRef.current.play();
       }
-      playRef.current.onended = () => setEnd(true);
-      setPlay(true);
+      playRef.current.onended = () => dispatch(end_true(true));
+      dispatch(play_true(true));
     }, 3000);
     return clearTimeout();
   });
@@ -57,11 +60,11 @@ export default () => {
         <ContentLinks>
           <ContentLink>
             <FontAwesomeIcon icon={faPlay} />
-            재생
+            <span>재생</span>
           </ContentLink>
           <ContentLink>
             <FontAwesomeIcon icon={faQuestionCircle} />
-            상세정보
+            <span>상세정보</span>
           </ContentLink>
         </ContentLinks>
       </ContentInfo>

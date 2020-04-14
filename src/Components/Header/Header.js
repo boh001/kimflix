@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { scroll_true, search_true } from "modules/reducers/boolean";
 import {
   HeaderFrame,
   HeaderLogo,
@@ -10,32 +12,34 @@ import {
   HeaderSearchBar,
   HeaderIcon,
 } from "./Header.style";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default () => {
-  const [active, setActive] = useState(false);
-  const [showBar, setShowbar] = useState(false);
+  const dispatch = useDispatch();
+  const {
+    boolean: { scroll, search },
+  } = useSelector((state) => state);
+
   const clickSearch = useCallback((e) => {
     e.preventDefault();
-    setShowbar(!showBar);
+    dispatch(search_true(search));
   });
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       console.log(typeof window.scrollY);
       if (window.scrollY !== 0) {
-        setActive(true);
+        dispatch(scroll_true(true));
       } else {
-        setActive(false);
+        dispatch(scroll_true(false));
       }
     });
-    return window.removeEventListener("scroll", () => {
-      console.log("remove");
-    });
-  }, [active]);
+    return window.removeEventListener("scroll", () => console.log("remove"));
+  }, [scroll]);
   return (
-    <HeaderFrame active={active}>
+    <HeaderFrame scroll={scroll}>
       <HeaderLinks>
         <HeaderLogo to="#">KIMFLIX</HeaderLogo>
         <HeaderLink to="#">홈</HeaderLink>
@@ -49,7 +53,7 @@ export default () => {
           <HeaderIcon onClick={(e) => clickSearch(e)}>
             <FontAwesomeIcon icon={faSearch} />
           </HeaderIcon>
-          <HeaderSearchBar showBar={showBar} />
+          <HeaderSearchBar search={search} />
         </HeaderSearch>
         <HeaderUser></HeaderUser>
       </HeaderSub>
