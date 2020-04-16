@@ -6,7 +6,6 @@ import { color } from "Components/variable";
 
 const Absolute = styled.div`
   width: 100%;
-
   position: absolute;
   top: 450px;
   &:after {
@@ -19,13 +18,28 @@ const Absolute = styled.div`
     height: 100%;
   }
 `;
-export default () => {
+const Main = styled.div`
+  width: 100%;
+  padding-top: 130px;
+  margin-top: ${(props) => `${props.top}px`};
+  transition: all ease 0.5s;
+`;
+export default ({ nowPlaying, upcoming, latest, popular, top, setTop }) => {
   return (
     <>
       <TodayM />
       <Absolute>
-        <Contents />
+        <Contents
+          title={"Now Playing Contents"}
+          content={nowPlaying}
+          setTop={setTop}
+        />
       </Absolute>
+      <Main top={top}>
+        <Contents title={"Upcoming Contents"} content={upcoming} />
+        <Contents title={"Latest Contents"} content={latest} />
+        <Contents title={"Popular Contents"} content={popular} />
+      </Main>
     </>
   );
 };

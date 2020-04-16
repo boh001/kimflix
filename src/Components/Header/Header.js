@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { scroll_true, search_true } from "modules/reducers/boolean";
+import React, { useEffect, useCallback, useState } from "react";
+
 import {
   HeaderFrame,
   HeaderLogo,
@@ -16,24 +15,21 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-export default () => {
-  const dispatch = useDispatch();
-  const {
-    boolean: { scroll, search },
-  } = useSelector((state) => state);
+export default React.memo(() => {
+  const [scroll, setScroll] = useState(false);
+  const [search, setSearch] = useState(false);
 
   const clickSearch = useCallback((e) => {
     e.preventDefault();
-    dispatch(search_true(search));
+    setSearch(!search);
   });
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      console.log(typeof window.scrollY);
       if (window.scrollY !== 0) {
-        dispatch(scroll_true(true));
+        setScroll(true);
       } else {
-        dispatch(scroll_true(false));
+        setScroll(false);
       }
     });
     return window.removeEventListener("scroll", () => console.log("remove"));
@@ -43,9 +39,6 @@ export default () => {
       <HeaderLinks>
         <HeaderLogo to="#">KIMFLIX</HeaderLogo>
         <HeaderLink to="#">홈</HeaderLink>
-        <HeaderLink to="#">TV프로그램</HeaderLink>
-        <HeaderLink to="#">영화</HeaderLink>
-        <HeaderLink to="#">최신 콘텐츠</HeaderLink>
         <HeaderLink to="#">내가 찜한 콘텐츠</HeaderLink>
       </HeaderLinks>
       <HeaderSub>
@@ -59,4 +52,4 @@ export default () => {
       </HeaderSub>
     </HeaderFrame>
   );
-};
+});

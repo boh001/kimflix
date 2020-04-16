@@ -25,14 +25,15 @@ export const DetailBtn = styled.div`
 export const Relative = styled.div`
   display: flex;
   transition: all ease 0.5s;
-  width: 200px;
+  width: 213px;
+  height: 300px;
   position: relative;
   z-index: 999;
   cursor: pointer;
   pointer-events: ${(props) => (props.show ? "none;" : "auto;")};
   &:hover {
-    margin: 0px 50px;
-    transform: scale(1.5);
+    margin: 0px 20px;
+    transform: scale(1.2);
   }
   &:hover ${DetailBtn} {
     opacity: 1;

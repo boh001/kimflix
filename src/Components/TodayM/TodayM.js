@@ -1,6 +1,4 @@
-import React, { useEffect, useRef, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { sound_true, end_true, play_true } from "modules/reducers/boolean";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import {
   Frame,
   Content,
@@ -25,25 +23,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
 export default () => {
-  const dispatch = useDispatch();
-  const {
-    boolean: { sound, end, play },
-  } = useSelector((state) => state);
+  const [sound, setSound] = useState(false);
+  const [end, setEnd] = useState(false);
+  const [play, setPlay] = useState(false);
+
   const playRef = useRef();
   const replay = useCallback((e) => {
     playRef.current.play();
-    dispatch(end_true(false));
+    setEnd(false);
   });
   const turnUp = useCallback((e) => {
-    dispatch(sound_true(!sound));
+    setSound(!sound);
   });
   useEffect(() => {
     setTimeout(() => {
       if (!play) {
         playRef.current.play();
       }
-      playRef.current.onended = () => dispatch(end_true(true));
-      dispatch(play_true(true));
+      playRef.current.onended = () => setEnd(true);
+      setPlay(true);
     }, 3000);
     return clearTimeout();
   });

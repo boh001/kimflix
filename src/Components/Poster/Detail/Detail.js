@@ -1,6 +1,4 @@
 import React, { useCallback } from "react";
-import { show_true } from "modules/reducers/boolean";
-import { useDispatch } from "react-redux";
 import {
   DetailFrame,
   DetailName,
@@ -9,27 +7,41 @@ import {
   DetailPage,
   DetailMain,
   DetailClose,
+  DetailImg,
 } from "./Detail.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-export default ({ url, des, name, date, detail, setDetail }) => {
-  const dispatch = useDispatch();
+export default ({
+  line,
+  des,
+  name,
+  date,
+  detail,
+  setDetail,
+  setShow,
+  setTop,
+  backdrop_path,
+}) => {
   const close = useCallback((e) => {
     e.preventDefault();
-    dispatch(show_true(false));
+    setShow(false);
     setDetail(false);
+    if (setTop) {
+      setTop(0);
+    }
   });
   return (
-    <DetailFrame detail={detail} url={url}>
+    <DetailFrame line={parseInt(line / 7) * 100} detail={detail}>
+      <DetailImg url={backdrop_path}></DetailImg>
       <DetailMain>
         <DetailName>{name}</DetailName>
         <DetailDes>{des}</DetailDes>
         <DetailMore>More</DetailMore>
-        <DetailPage>page</DetailPage>
-        <DetailClose onClick={(e) => close(e)}>
-          <FontAwesomeIcon icon={faTimes} />
-        </DetailClose>
       </DetailMain>
+      <DetailPage></DetailPage>
+      <DetailClose onClick={(e) => close(e)}>
+        <FontAwesomeIcon icon={faTimes} />
+      </DetailClose>
     </DetailFrame>
   );
 };

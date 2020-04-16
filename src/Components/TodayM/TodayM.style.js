@@ -78,11 +78,7 @@ export const ContentLink = styled(Link)`
     border-radius: 3px;
   }
 `;
-export const LinkWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  color: black;
-`;
+
 export const ContentSub = styled.div`
   position: absolute;
   height: 30px;
