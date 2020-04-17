@@ -15,6 +15,7 @@ import {
   Ptage,
 } from "./TodayM.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Btn from "Components/Btn/Btn";
 import {
   faPlay,
   faVolumeMute,
@@ -56,14 +57,14 @@ export default () => {
           지금 이 동영상을 보고 있다.
         </ContentDes>
         <ContentLinks>
-          <ContentLink>
+          <Btn to="#">
             <FontAwesomeIcon icon={faPlay} />
             <span>재생</span>
-          </ContentLink>
-          <ContentLink>
+          </Btn>
+          <Btn to="#">
             <FontAwesomeIcon icon={faQuestionCircle} />
             <span>상세정보</span>
-          </ContentLink>
+          </Btn>
         </ContentLinks>
       </ContentInfo>
       <ContentSub>

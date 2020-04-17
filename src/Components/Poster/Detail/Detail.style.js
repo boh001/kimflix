@@ -7,7 +7,7 @@ export const DetailFrame = styled.div`
   opacity: ${(props) => (props.detail ? "1;" : "0;")};
   top: 360px;
   width: 100%;
-  margin-left: ${(props) => `${props.line}%`};
+  left: 0;
   height: ${(props) => (props.detail ? "550px;" : "0px;")};
   transition: all ease 0.5s;
 
@@ -31,7 +31,7 @@ export const DetailImg = styled.div`
 `;
 
 export const DetailMain = styled.div`
-  width: 50%;
+  width: 650px;
   height: 100%;
   padding: 0px 0px 50px 50px;
   z-index: 999;
@@ -40,9 +40,9 @@ export const DetailMain = styled.div`
 export const DetailName = styled.div`
   font-size: 0.6em;
   width: 100%;
-  height: 30%;
   display: flex;
   align-items: center;
+  padding: 40px 0px;
   z-index: 999;
 `;
 export const DetailDes = styled.div`
@@ -50,19 +50,14 @@ export const DetailDes = styled.div`
   z-index: 999;
   line-height: 25px;
   color: #565656;
+  padding-bottom: 40px;
 `;
 export const DetailMore = styled.div`
   z-index: 999;
+  font-size: 0.15em;
+  display: flex;
 `;
-export const DetailPage = styled.div`
-  z-index: 999;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 30px;
-  background-color: red;
-  ${center};
-`;
+
 export const DetailClose = styled.div`
   position: absolute;
   right: 15px;

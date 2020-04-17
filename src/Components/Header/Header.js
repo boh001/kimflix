@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useEffect, useCallback, useState, useRef } from "react";
 
 import {
   HeaderFrame,
@@ -18,6 +18,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 export default React.memo(() => {
   const [scroll, setScroll] = useState(false);
   const [search, setSearch] = useState(false);
+  const inputRef = useRef();
 
   const clickSearch = useCallback((e) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ export default React.memo(() => {
       </HeaderLinks>
       <HeaderSub>
         <HeaderSearch>
-          <HeaderIcon onClick={(e) => clickSearch(e)}>
+          <HeaderIcon onClick={(e) => clickSearch(e)} ref={inputRef}>
             <FontAwesomeIcon icon={faSearch} />
           </HeaderIcon>
           <HeaderSearchBar search={search} />

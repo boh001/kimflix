@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import Btn from "Components/Btn/Btn";
 import {
   DetailFrame,
   DetailName,
@@ -10,7 +11,7 @@ import {
   DetailImg,
 } from "./Detail.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
 export default ({
   line,
   des,
@@ -31,14 +32,22 @@ export default ({
     }
   });
   return (
-    <DetailFrame line={parseInt(line / 7) * 100} detail={detail}>
+    <DetailFrame detail={detail}>
       <DetailImg url={backdrop_path}></DetailImg>
       <DetailMain>
         <DetailName>{name}</DetailName>
         <DetailDes>{des}</DetailDes>
-        <DetailMore>More</DetailMore>
+        <DetailMore>
+          <Btn>
+            <FontAwesomeIcon icon={faPlay} />
+            <span>재생</span>
+          </Btn>
+          <Btn>
+            <FontAwesomeIcon icon={faPlus} />
+            <span>내가 찜한 콘텐츠</span>
+          </Btn>
+        </DetailMore>
       </DetailMain>
-      <DetailPage></DetailPage>
       <DetailClose onClick={(e) => close(e)}>
         <FontAwesomeIcon icon={faTimes} />
       </DetailClose>

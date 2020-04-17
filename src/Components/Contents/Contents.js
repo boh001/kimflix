@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import {
   ContentsFrame,
@@ -20,6 +20,7 @@ export default ({ content, title, setTop }) => {
   const { loading } = useSelector((state) => state.loading);
   const [show, setShow] = useState(false);
   const [margin, setMargin] = useState(0);
+  const sliderRef = useRef();
   const next = useCallback((e) => {
     e.preventDefault();
     setMargin(margin - 100);
@@ -28,6 +29,7 @@ export default ({ content, title, setTop }) => {
     e.preventDefault();
     setMargin(margin + 100);
   });
+
   return (
     <Relative>
       <SlideBtn onClick={(e) => prev(e)} next={false} margin={margin}>
@@ -37,7 +39,7 @@ export default ({ content, title, setTop }) => {
         <Slider>
           <ContentsName>{title}</ContentsName>
 
-          <ContentsBody show={show} margin={margin}>
+          <ContentsBody show={show} margin={margin} ref={sliderRef}>
             {loading ? (
               <Loading />
             ) : (
