@@ -25,29 +25,33 @@ export const DetailImg = styled.div`
 export const DetailInfo = styled.div`
   width: 100%;
   height: 300px;
-  padding: 20px 0px 0px 400px;
+  padding: 20px 80px 0px 400px;
   position: relative;
 `;
-export const DetailTitle = styled.div`
-  font-size: 0.6em;
+export const DetailMain = styled.div`
   display: flex;
   align-items: center;
-  padding: 40px 0px;
-  background-color: blue;
+  width: 100%;
+  background-color: red;
+  padding: 10px 0px;
+`;
+export const DetailTitle = styled.div``;
+
+export const DetailDate = styled.div`
+  padding: 0px 10px;
+`;
+export const DetailBtn = styled.div`
+  background-color: pink;
+  width: 50px;
+  height: 30px;
 `;
 export const DetailSub = styled.div`
   width: 100%;
   background-color: green;
 `;
-
-export const DetailDate = styled.div`
-  font-size: 0.6em;
-  display: flex;
-  align-items: center;
-  padding: 40px 0px;
-  background-color: blue;
-`;
-
+export const DetailVote = styled.div``;
+export const DetailGenres = styled.div``;
+export const DetailRuntime = styled.div``;
 export const DetailDes = styled.div`
   width: 100%;
   font-size: 0.2em;

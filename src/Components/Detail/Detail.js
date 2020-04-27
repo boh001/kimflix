@@ -7,6 +7,12 @@ import {
   DetailTitle,
   DetailSub,
   DetailDes,
+  DetailMain,
+  DetailDate,
+  DetailBtn,
+  DetailVote,
+  DetailGenres,
+  DetailRuntime,
 } from "./Detail.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +25,7 @@ export default () => {
           poster_path,
           backdrop_path,
           overview,
+          genres,
           runtime,
           title,
           vote_average,
@@ -35,8 +42,20 @@ export default () => {
       <DetailBg url={backdrop_path} />
       <DetailInfo>
         <DetailImg url={poster_path} />
-        <DetailTitle>{title}</DetailTitle>
-        <DetailSub>hu</DetailSub>
+        <DetailMain>
+          <DetailTitle>{title}</DetailTitle>
+          <DetailDate>({release_date})</DetailDate>
+          <DetailBtn></DetailBtn>
+        </DetailMain>
+        <DetailSub>
+          <DetailVote>{vote_average}</DetailVote>
+          <DetailGenres>
+            {genres.map((g, key) => {
+              const { name } = g;
+            })}
+          </DetailGenres>
+          <DetailRuntime>{runtime}</DetailRuntime>
+        </DetailSub>
         <DetailDes>hu</DetailDes>
       </DetailInfo>
     </DetailFrame>
