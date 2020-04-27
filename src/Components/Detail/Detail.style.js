@@ -1,56 +1,57 @@
 import styled from "styled-components";
 import { center } from "Components/variable";
 export const DetailFrame = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  opacity: ${(props) => (props.detail ? "1;" : "0;")};
-  top: 360px;
-  width: 100%;
-  left: 0;
-  height: ${(props) => (props.detail ? "550px;" : "0px;")};
-  transition: all ease 0.5s;
-
-  &:before {
-    content: "";
-    background: linear-gradient(to left, transparent, black 30%);
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    z-index: 99;
+  with:100%;
+  min-height:100vh;
   }
+`;
+export const DetailBg = styled.div`
+  background-image: url(${(props) =>
+    `https://image.tmdb.org/t/p/w300${props.url}`});
+  background-size: fill;
+  width: 100%;
+  height: 500px;
 `;
 export const DetailImg = styled.div`
   background-image: url(${(props) =>
     `https://image.tmdb.org/t/p/w300${props.url}`});
   background-size: cover;
-  width: 70%;
-  height: 100%;
+  width: 300px;
+  height: 400px;
+  top: -80px;
+  left: 50px;
   position: absolute;
-  right: 0;
 `;
-
-export const DetailMain = styled.div`
-  width: 650px;
-  height: 100%;
-  padding: 0px 0px 50px 50px;
-  z-index: 999;
+export const DetailInfo = styled.div`
+  width: 100%;
+  height: 300px;
+  padding: 20px 0px 0px 400px;
   position: relative;
 `;
-export const DetailName = styled.div`
+export const DetailTitle = styled.div`
   font-size: 0.6em;
-  width: 100%;
   display: flex;
   align-items: center;
   padding: 40px 0px;
-  z-index: 999;
+  background-color: blue;
 `;
+export const DetailSub = styled.div`
+  width: 100%;
+  background-color: green;
+`;
+
+export const DetailDate = styled.div`
+  font-size: 0.6em;
+  display: flex;
+  align-items: center;
+  padding: 40px 0px;
+  background-color: blue;
+`;
+
 export const DetailDes = styled.div`
+  width: 100%;
   font-size: 0.2em;
-  z-index: 999;
-  line-height: 25px;
-  color: #565656;
-  padding-bottom: 40px;
+  background-color: yellow;
 `;
 export const DetailMore = styled.div`
   z-index: 999;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { color, center } from "Components/variable";
 export const Frame = styled.div`
   width: 100%;
-  height: 700px;
+  height: 500px;
   position: relative;
   font-size: 100px;
 `;
@@ -45,7 +45,7 @@ export const ContentSub = styled.div`
   position: absolute;
   height: 30px;
   right: 0px;
-  bottom: 270px;
+  bottom: 150px;
   display: flex;
   align-items: center;
 `;

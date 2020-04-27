@@ -27,37 +27,19 @@ export default ({ content, title, setTop }) => {
     <Relative>
       <ContentsFrame>
         <ContentsName>{title}</ContentsName>
-        <ContentsBody show={show} margin={margin} ref={sliderRef}>
-          {loading ? (
-            <Loading />
-          ) : (
-            <>
+
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <ContentsBody show={show} margin={margin} ref={sliderRef}>
               {content.map((p, key) => {
-                const {
-                  poster_path,
-                  backdrop_path,
-                  original_title,
-                  overview,
-                  release_date,
-                } = p;
-                return (
-                  <Poster
-                    key={key}
-                    line={key}
-                    poster_path={poster_path}
-                    backdrop_path={backdrop_path}
-                    original_title={original_title}
-                    overview={overview}
-                    release_date={release_date}
-                    show={show}
-                    setShow={setShow}
-                    setTop={setTop}
-                  />
-                );
+                const { poster_path, id } = p;
+                return <Poster key={key} id={id} poster_path={poster_path} />;
               })}
-            </>
-          )}
-        </ContentsBody>
+            </ContentsBody>
+          </>
+        )}
       </ContentsFrame>
     </Relative>
   );

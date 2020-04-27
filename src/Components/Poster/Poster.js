@@ -1,29 +1,13 @@
-import React, { useCallback, useState } from "react";
-import { PosterFrame, Relative } from "./Poster.style";
-import Detail from "./Detail/Detail";
+import React, { useCallback } from "react";
+import { PosterFrame, PostrLink } from "./Poster.style";
+import { withRouter } from "react-router-dom";
 
-export default ({
-  poster_path,
-  backdrop_path,
-  original_title,
-  overview,
-  release_date,
-  show,
-  setShow,
-  setTop,
-  line,
-}) => {
-  const [detail, setDetail] = useState(false);
-  const showDetail = useCallback((e) => {
-    setShow(true);
-    setDetail(true);
-    if (setTop) {
-      setTop(550);
-    }
-  });
+export default ({ poster_path, id }) => {
   return (
     <>
-      <PosterFrame src={poster_path} />
+      <PostrLink to={`/detail/${id}`}>
+        <PosterFrame src={poster_path} />
+      </PostrLink>
     </>
   );
 };

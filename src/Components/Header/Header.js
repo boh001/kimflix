@@ -38,8 +38,8 @@ export default React.memo(() => {
   return (
     <HeaderFrame scroll={scroll}>
       <HeaderLinks>
-        <HeaderLogo to="#">KIMFLIX</HeaderLogo>
-        <HeaderLink to="#">홈</HeaderLink>
+        <HeaderLogo to="/">KIMFLIX</HeaderLogo>
+        <HeaderLink to="/">홈</HeaderLink>
         <HeaderLink to="#">내가 찜한 콘텐츠</HeaderLink>
       </HeaderLinks>
       <HeaderSub>
