@@ -17,6 +17,7 @@ const initialState = {
   details: {
     detail: {},
     similar: [],
+    cast: [],
   },
 };
 
@@ -33,6 +34,7 @@ export default handleActions(
 
         draft.details.detail = payload.detail;
         draft.details.similar = payload.similar;
+        draft.details.cast = payload.cast;
       });
     },
   },

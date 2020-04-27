@@ -16,5 +16,6 @@ export const moviesApi = {
 };
 export const movieApi = {
   detail: (id) => api.get(`${id}?api_key=${key}&language=ko-KR`),
+  cast: (id) => api.get(`${id}/credits?api_key=${key}&language=ko-KR`),
   similar: (id) => api.get(`${id}/similar?api_key=${key}&language=ko-KR`),
 };

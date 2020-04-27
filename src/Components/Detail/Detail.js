@@ -13,6 +13,9 @@ import {
   DetailVote,
   DetailGenres,
   DetailRuntime,
+  DetailMainDes,
+  DetailSubDes,
+  DetailCasts,
 } from "./Detail.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -21,10 +24,12 @@ export default () => {
   const {
     data: {
       details: {
+        detail,
         detail: {
           poster_path,
           backdrop_path,
           overview,
+          tagline,
           genres,
           runtime,
           title,
@@ -32,10 +37,10 @@ export default () => {
           release_date,
         },
         similar,
+        cast: { character, name, profile_path, gender },
       },
     },
   } = useSelector((state) => state);
-  console.log(similar);
 
   return (
     <DetailFrame>
@@ -49,15 +54,15 @@ export default () => {
         </DetailMain>
         <DetailSub>
           <DetailVote>{vote_average}</DetailVote>
-          <DetailGenres>
-            {genres.map((g, key) => {
-              const { name } = g;
-            })}
-          </DetailGenres>
+          <DetailGenres></DetailGenres>
           <DetailRuntime>{runtime}</DetailRuntime>
         </DetailSub>
-        <DetailDes>hu</DetailDes>
+        <DetailDes>
+          <DetailSubDes>{tagline}</DetailSubDes>
+          <DetailMainDes>{overview}</DetailMainDes>
+        </DetailDes>
       </DetailInfo>
+      <DetailCasts></DetailCasts>
     </DetailFrame>
   );
 };

@@ -15,7 +15,16 @@ export default ({ match }) => {
         const {
           data: { results: similar },
         } = await movieApi.similar(id);
-        dispatch(onDetail({ detail, similar: similar.slice(0, 5) }));
+        const {
+          data: { cast },
+        } = await movieApi.cast(id);
+        dispatch(
+          onDetail({
+            detail,
+            similar: similar.slice(0, 5),
+            cast: cast.slice(0, 3),
+          })
+        );
       } catch (error) {
         console.log(error);
       }
