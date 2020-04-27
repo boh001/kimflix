@@ -7,6 +7,7 @@ export const Frame = styled.div`
   height: 500px;
   position: relative;
   font-size: 100px;
+  margin-bottom: 50px;
 `;
 export const Content = styled.video.attrs((props) => ({
   src: test,

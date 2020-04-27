@@ -37,14 +37,15 @@ export default () => {
     setSound(!sound);
   });
   useEffect(() => {
-    const start = setTimeout(() => {
+    const { current } = playRef;
+    setTimeout(() => {
       if (!play) {
-        playRef.current.play();
+        current.play();
       }
-      playRef.current.onended = () => setEnd(true);
+      current.onended = () => setEnd(true);
       setPlay(true);
     }, 3000);
-    return clearTimeout(start, () => console.log("clear"));
+    return clearTimeout(() => console.log("clear"));
   }, []);
   return (
     <Frame>

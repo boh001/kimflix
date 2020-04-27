@@ -30,8 +30,6 @@ export default handleActions(
     },
     [ONDETAIL]: (state, { payload }) => {
       return produce(state, (draft) => {
-        console.log(payload);
-
         draft.details.detail = payload.detail;
         draft.details.similar = payload.similar;
         draft.details.cast = payload.cast;

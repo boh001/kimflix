@@ -22,7 +22,7 @@ export default ({ match }) => {
           onDetail({
             detail,
             similar: similar.slice(0, 5),
-            cast: cast.slice(0, 3),
+            cast: cast.slice(0, 6),
           })
         );
       } catch (error) {
