@@ -1,13 +1,21 @@
 import styled from "styled-components";
 import test from "assets/test.mp4";
-import { Link } from "react-router-dom";
 import { color, center } from "Components/variable";
 export const Frame = styled.div`
   width: 100%;
-  height: 500px;
+  height: 700px;
   position: relative;
   font-size: 100px;
   margin-bottom: 50px;
+  @media screen and (max-width: 1200px) {
+    height: 500px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 70px;
+  }
+  @media screen and (max-width: 478px) {
+    font-size: 50px;
+  }
 `;
 export const Content = styled.video.attrs((props) => ({
   src: test,
@@ -17,6 +25,12 @@ export const Content = styled.video.attrs((props) => ({
   width: 100%;
   height: 100%;
   object-fit: cover;
+  @media screen and (max-width: 768px) {
+    object-fit: auto;
+  }
+  @media screen and (max-width: 478px) {
+    object-fit: auto;
+  }
 `;
 export const ContentInfo = styled.div`
   top: 90px;
@@ -25,6 +39,12 @@ export const ContentInfo = styled.div`
   width: 450px;
   display: grid;
   grid-gap: 20px;
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 478px) {
+    width: 70%;
+  }
 `;
 export const ContentName = styled.div`
   font-size: 0.7em;
@@ -49,6 +69,10 @@ export const ContentSub = styled.div`
   bottom: 150px;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    bottom: 50px;
+    height: 25px;
+  }
 `;
 export const ContentControl = styled.div`
   ${(props) => (props.play ? center : "display:none;")}
@@ -79,6 +103,10 @@ export const ContentControl = styled.div`
     ::after {
     }
   }
+  @media screen and (max-width: 768px) {
+    height: 25px;
+    width: 25px;
+  }
 `;
 export const ContentOld = styled.div`
   width: 90px;
@@ -99,6 +127,9 @@ export const ContentOld = styled.div`
     right: 0;
     z-index: -1;
   }
+  @media screen and (max-width: 768px) {
+    width: 60px;
+  }
 `;
 export const Old = styled.div`
   border-radius: 50%;
@@ -107,6 +138,10 @@ export const Old = styled.div`
   background-color: #4fa855;
   font-size: 0.1em;
   ${center}
+  @media screen and (max-width: 768px) {
+    width: 25px;
+    height: 24px;
+  }
 `;
 export const Ptage = styled.p`
   transform: scale(0.5);

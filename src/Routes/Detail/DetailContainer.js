@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { movieApi } from "api";
 import { useDispatch } from "react-redux";
 import { onDetail } from "modules/reducers/data";
+import { onLoadDetail } from "modules/reducers/loading";
 export default ({ match }) => {
   const {
     params: { id },
@@ -25,11 +26,13 @@ export default ({ match }) => {
             cast: cast.slice(0, 6),
           })
         );
+        dispatch(onLoadDetail(false));
       } catch (error) {
         console.log(error);
       }
     }
     upDetail();
+    return () => dispatch(onLoadDetail(true));
   }, []);
 
   return <DetailPresenter />;

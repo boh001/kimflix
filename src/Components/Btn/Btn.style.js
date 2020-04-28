@@ -1,9 +1,10 @@
-import { color } from "Components/variable";
+import { color, center } from "Components/variable";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const BtnLink = styled(Link)`
   border: none;
+  ${center};
   padding: 10px 30px;
   height: 35px;
   position: relative;
@@ -33,5 +34,19 @@ export const BtnLink = styled(Link)`
     top: 0;
     left: 0;
     border-radius: 3px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 25px;
+    padding: 5px 15px;
+    & > span {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 478px) {
+    height: 20px;
+    padding: 5px 10px;
+    & > span {
+      display: none;
+    }
   }
 `;

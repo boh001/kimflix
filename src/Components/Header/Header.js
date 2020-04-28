@@ -4,7 +4,6 @@ import {
   HeaderFrame,
   HeaderLogo,
   HeaderLinks,
-  HeaderUser,
   HeaderLink,
   HeaderSub,
   HeaderSearch,
@@ -40,7 +39,7 @@ export default React.memo(() => {
       <HeaderLinks>
         <HeaderLogo to="/">KIMFLIX</HeaderLogo>
         <HeaderLink to="/">홈</HeaderLink>
-        <HeaderLink to="#">내가 찜한 콘텐츠</HeaderLink>
+        <HeaderLink to="/myContents">내가 찜한 콘텐츠</HeaderLink>
       </HeaderLinks>
       <HeaderSub>
         <HeaderSearch>
@@ -49,7 +48,6 @@ export default React.memo(() => {
           </HeaderIcon>
           <HeaderSearchBar search={search} />
         </HeaderSearch>
-        <HeaderUser></HeaderUser>
       </HeaderSub>
     </HeaderFrame>
   );

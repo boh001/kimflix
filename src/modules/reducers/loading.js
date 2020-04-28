@@ -1,20 +1,29 @@
 import { createAction, handleActions } from "redux-actions";
 import produce from "immer";
 
-const ONLOAD = "ONLOAD";
+const ONLOADHOME = "ONLOADHOME";
+const ONLOADDETAIL = "ONLOADDETAIL";
 
-export const onLoad = createAction(ONLOAD);
+export const onLoadHome = createAction(ONLOADHOME);
+export const onLoadDetail = createAction(ONLOADDETAIL);
 
 const initialState = {
-  loading: true,
+  loading: {
+    home: true,
+    detail: true,
+  },
 };
 
 export default handleActions(
   {
-    [ONLOAD]: (state, { payload }) => {
+    [ONLOADHOME]: (state, { payload }) => {
       return produce(state, (draft) => {
-        console.log(draft.loading);
-        draft.loading = payload;
+        draft.loading.home = payload;
+      });
+    },
+    [ONLOADDETAIL]: (state, { payload }) => {
+      return produce(state, (draft) => {
+        draft.loading.detail = payload;
       });
     },
   },

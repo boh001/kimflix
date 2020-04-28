@@ -1,14 +1,17 @@
 import HomePresenter from "./HomePresenter";
 import { useDispatch, useSelector } from "react-redux";
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { moviesApi } from "api";
 import { onData } from "modules/reducers/data";
-import { onLoad } from "modules/reducers/loading";
+import { onLoadHome } from "modules/reducers/loading";
 
 export default () => {
-  const [top, setTop] = useState();
   const dispatch = useDispatch();
+  const {
+    data: {
+      content: { nowPlaying, upcoming, latest, popular },
+    },
+  } = useSelector((state) => state);
   useEffect(() => {
     async function upData() {
       try {
@@ -31,18 +34,14 @@ export default () => {
           latest,
         };
         dispatch(onData(data));
-        dispatch(onLoad(false));
+        dispatch(onLoadHome(false));
       } catch (error) {
         console.log(error);
       }
     }
     upData();
+    return () => dispatch(onLoadHome(true));
   }, []);
-  const {
-    data: {
-      content: { nowPlaying, upcoming, latest, popular },
-    },
-  } = useSelector((state) => state);
 
   return (
     <HomePresenter
@@ -50,8 +49,6 @@ export default () => {
       upcoming={upcoming}
       latest={latest}
       popular={popular}
-      top={top}
-      setTop={setTop}
     />
   );
 };

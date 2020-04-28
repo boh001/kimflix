@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Frame,
   Content,
@@ -7,7 +8,6 @@ import {
   ContentRank,
   ContentDes,
   ContentLinks,
-  ContentLink,
   ContentSub,
   ContentControl,
   ContentOld,
@@ -23,18 +23,19 @@ import {
   faRedo,
 } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
+import { onPlay, onSound, onEnd } from "modules/reducers/video";
 export default () => {
-  const [sound, setSound] = useState(false);
-  const [end, setEnd] = useState(false);
-  const [play, setPlay] = useState(false);
-
+  const {
+    btn: { sound, end, play },
+  } = useSelector((state) => state.video);
+  const dispatch = useDispatch();
   const playRef = useRef();
   const replay = useCallback((e) => {
     playRef.current.play();
-    setEnd(false);
+    dispatch(onEnd(false));
   });
   const turnUp = useCallback((e) => {
-    setSound(!sound);
+    dispatch(onSound(!sound));
   });
   useEffect(() => {
     const { current } = playRef;
@@ -42,10 +43,13 @@ export default () => {
       if (!play) {
         current.play();
       }
-      current.onended = () => setEnd(true);
-      setPlay(true);
+      current.onended = () => dispatch(onEnd(true));
+      dispatch(onPlay(true));
     }, 3000);
-    return clearTimeout(() => console.log("clear"));
+    return () => {
+      clearTimeout();
+      dispatch(onEnd(false));
+    };
   }, []);
   return (
     <Frame>
@@ -58,11 +62,11 @@ export default () => {
           지금 이 동영상을 보고 있다.
         </ContentDes>
         <ContentLinks>
-          <Btn to="#">
+          <Btn>
             <FontAwesomeIcon icon={faPlay} />
             <span>재생</span>
           </Btn>
-          <Btn to="#">
+          <Btn>
             <FontAwesomeIcon icon={faQuestionCircle} />
             <span>상세정보</span>
           </Btn>

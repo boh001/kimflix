@@ -9,6 +9,7 @@ import Header from "./Header/Header";
 import MainFrame from "./MainFrame/MainFrame";
 import Home from "Routes/Home";
 import Detail from "Routes/Detail";
+import MyContents from "Routes/MyContents";
 export default () => {
   return (
     <Router>
@@ -17,6 +18,7 @@ export default () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/detail/:id" component={Detail} />
+          <Route path="/myContents" component={MyContents} />
           <Redirect to="/" />
         </Switch>
       </MainFrame>
