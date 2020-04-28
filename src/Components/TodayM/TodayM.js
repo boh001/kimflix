@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, useState } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Frame,
@@ -49,6 +49,7 @@ export default () => {
     return () => {
       clearTimeout();
       dispatch(onEnd(false));
+      dispatch(onPlay(false));
     };
   }, []);
   return (

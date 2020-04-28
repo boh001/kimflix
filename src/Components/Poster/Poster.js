@@ -1,8 +1,8 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { PosterFrame, PostrLink } from "./Poster.style";
-import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export default ({ poster_path, id }) => {
+const Poster = ({ poster_path, id }) => {
   return (
     <>
       <PostrLink to={`/detail/${id}`}>
@@ -11,3 +11,8 @@ export default ({ poster_path, id }) => {
     </>
   );
 };
+Poster.propTypes = {
+  poster_path: PropTypes.string,
+  id: PropTypes.number,
+};
+export default Poster;

@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from "react";
+import React from "react";
 import {
   ContentsFrame,
   ContentsName,
@@ -6,8 +6,9 @@ import {
   Relative,
 } from "./Contents.style";
 import Poster from "Components/Poster/Poster";
+import PropTypes from "prop-types";
 
-export default ({ content, title }) => {
+const Contents = React.memo(({ content, title }) => {
   return (
     <>
       <Relative>
@@ -23,4 +24,9 @@ export default ({ content, title }) => {
       </Relative>
     </>
   );
+});
+Contents.propTypes = {
+  content: PropTypes.array,
+  title: PropTypes.string,
 };
+export default Contents;

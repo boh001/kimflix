@@ -13,23 +13,23 @@ import {
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-
+import { useSelector, useDispatch } from "react-redux";
+import { onScroll, onSearch } from "modules/reducers/header";
 export default React.memo(() => {
-  const [scroll, setScroll] = useState(false);
-  const [search, setSearch] = useState(false);
+  const { scroll, search } = useSelector((state) => state.header);
+  const dispatch = useDispatch();
   const inputRef = useRef();
-
   const clickSearch = useCallback((e) => {
     e.preventDefault();
-    setSearch(!search);
+    dispatch(onSearch(!search));
   });
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY !== 0) {
-        setScroll(true);
+        dispatch(onScroll(true));
       } else {
-        setScroll(false);
+        dispatch(onScroll(false));
       }
     });
     return window.removeEventListener("scroll", () => console.log("remove"));

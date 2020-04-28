@@ -4,8 +4,8 @@ import Contents from "Components/Contents/Contents";
 import Loading from "Components/Loading/Loading";
 import { useSelector } from "react-redux";
 import LazyLoad from "react-lazyload";
-
-export default ({ nowPlaying, upcoming, latest, popular }) => {
+import PropTypes from "prop-types";
+const HomePresenter = ({ nowPlaying, upcoming, latest, popular }) => {
   const {
     loading: { home: loading },
   } = useSelector((state) => state.loading);
@@ -31,3 +31,10 @@ export default ({ nowPlaying, upcoming, latest, popular }) => {
     </>
   );
 };
+HomePresenter.propTypes = {
+  nowPlaying: PropTypes.array,
+  upcoming: PropTypes.array,
+  latest: PropTypes.array,
+  popular: PropTypes.array,
+};
+export default HomePresenter;

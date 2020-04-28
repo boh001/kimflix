@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, Component } from "react";
 import {
   DetailFrame,
   DetailBg,
@@ -30,6 +30,7 @@ import Loading from "Components/Loading/Loading";
 import { useSelector } from "react-redux";
 
 export default () => {
+  const [update, setUpdate] = useState(false);
   const {
     loading: { detail: loading },
   } = useSelector((state) => state.loading);
@@ -54,20 +55,21 @@ export default () => {
     },
   } = useSelector((state) => state);
   const like = localStorage.getItem(`${id}`);
-  const [my, setMy] = useState(like);
-  console.log(id, my);
-
   const addList = useCallback((e) => {
     e.preventDefault();
-    if (my) {
+    if (like) {
       localStorage.removeItem(`${id}`);
     } else {
       localStorage.setItem(
         `${id}`,
-        JSON.stringify({ id, title, backdrop_path })
+        JSON.stringify({
+          id: id,
+          title: title,
+          backdrop_path: backdrop_path,
+        })
       );
     }
-    setMy(!my);
+    setUpdate(!update);
   });
   return (
     <>
@@ -84,7 +86,7 @@ export default () => {
                   <DetailTitle>{title}</DetailTitle>
                   <DetailDate>({release_date.slice(0, 4)})</DetailDate>
                   <DetailBtn onClick={(e) => addList(e)}>
-                    {!my ? "찜하기" : "MY"}
+                    {!like ? "찜하기" : "MY"}
                   </DetailBtn>
                 </DetailMain>
                 <DetailSub>

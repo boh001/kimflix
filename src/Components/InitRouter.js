@@ -12,7 +12,7 @@ import Detail from "Routes/Detail";
 import MyContents from "Routes/MyContents";
 export default () => {
   return (
-    <Router>
+    <Router basename={window.location.pathname || ""}>
       <Header />
       <MainFrame>
         <Switch>
