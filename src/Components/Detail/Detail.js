@@ -1,4 +1,4 @@
-import React, { useCallback, useState, Component } from "react";
+import React, { useCallback, useState } from "react";
 import {
   DetailFrame,
   DetailBg,

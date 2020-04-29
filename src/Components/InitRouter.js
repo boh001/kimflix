@@ -12,14 +12,13 @@ import Detail from "Routes/Detail";
 import MyContents from "Routes/MyContents";
 export default () => {
   return (
-    <Router basename={window.location.pathname || ""}>
+    <Router>
       <Header />
       <MainFrame>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/detail/:id" component={Detail} />
           <Route path="/myContents" component={MyContents} />
-          <Redirect to="/" />
         </Switch>
       </MainFrame>
     </Router>
