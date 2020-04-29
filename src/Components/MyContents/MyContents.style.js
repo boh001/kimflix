@@ -34,6 +34,7 @@ export const Name = styled.div`
   ${center};
   opacity: 0;
   z-index: 2;
+  padding: 50px;
   font-weight: bold;
   @media screen and (max-width: 768px) {
     font-size: 0.8em;

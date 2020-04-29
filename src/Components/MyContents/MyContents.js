@@ -8,7 +8,7 @@ export default ({ myContents }) => {
         {myContents.map((c, key) => {
           const { id, title, backdrop_path } = JSON.parse(c);
           return (
-            <MyBg to={`/detail/${id}`} url={backdrop_path}>
+            <MyBg to={`/detail/${id}`} key={key} url={backdrop_path}>
               <Name>{title}</Name>
             </MyBg>
           );
