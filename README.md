@@ -7,8 +7,8 @@ Reactjs에서 상태관리를 위해 사용하는 Redux를 공부하고 적용�
 ## 웹사이트 화면
 |홈화면| 상세영화정보 화면| 찜한 영화 화면|
 |------|------------------|--------------|
-|![image](https://user-images.githubusercontent.com/54930248/90602122-3266dc00-e234-11ea-8e62-89fa91fd47cc.png)|![image](https://user-images.githubusercontent.com/54930248/90602128-34309f80-e234-11ea-83df-03f6a3a5ac3f.png)|![image](https://user-images.githubusercontent.com/54930248/90602132-35fa6300-e234-11ea-8d3f-9cbee5ca8932.png)
-|
+|![image](https://user-images.githubusercontent.com/54930248/90602122-3266dc00-e234-11ea-8e62-89fa91fd47cc.png)|![image](https://user-images.githubusercontent.com/54930248/90602128-34309f80-e234-11ea-83df-03f6a3a5ac3f.png)|![image](https://user-images.githubusercontent.com/54930248/90602132-35fa6300-e234-11ea-8d3f-9cbee5ca8932.png)|
+
 
 ## 기술 스택
 
