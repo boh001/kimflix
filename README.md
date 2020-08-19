@@ -14,5 +14,4 @@ Reactjs에서 상태관리를 위해 사용하는 Redux를 공부하고 적용�
 
 | Front-End|API|                                                     
 |----------|---|
-| ![image](https://user-images.githubusercontent.com/54930248/90602035-09dee200-e234-11ea-9ab5-35099d2f132d.png) | 
-![image](https://user-images.githubusercontent.com/54930248/90602257-70fc9680-e234-11ea-8020-009806acad83.png)
+| ![image](https://user-images.githubusercontent.com/54930248/90602035-09dee200-e234-11ea-9ab5-35099d2f132d.png) | ![image](https://user-images.githubusercontent.com/54930248/90602257-70fc9680-e234-11ea-8020-009806acad83.png)
