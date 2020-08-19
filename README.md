@@ -1,68 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 프로젝트 소개
+Reactjs에서 상태관리를 위해 사용하는 Redux를 공부하고 적용해보기 위해 혼자서 진행한 프로젝트입니다. 평소에 즐겨보던 Netflix의 홈화면을 구현해보았습니다.영화의 상세정보를 확인할수 있는 기능을 구현하기 위하여 The Movie DataBase API를 사용했습니다.
 
-In the project directory, you can run:
 
-### `npm start`
+## 웹사이트 화면
+|홈화면| 상세영화정보 화면| 찜한 영화 화면|
+|------|------------------|--------------|
+|![image](https://user-images.githubusercontent.com/54930248/90602122-3266dc00-e234-11ea-8e62-89fa91fd47cc.png)|![image](https://user-images.githubusercontent.com/54930248/90602128-34309f80-e234-11ea-83df-03f6a3a5ac3f.png)|![image](https://user-images.githubusercontent.com/54930248/90602132-35fa6300-e234-11ea-8d3f-9cbee5ca8932.png)
+|
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 기술 스택
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+| Front-End                                                                                                      | Back-End                                                                                                       | DataBase                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| ![image](https://user-images.githubusercontent.com/54930248/90602035-09dee200-e234-11ea-9ab5-35099d2f132d.png) | ![image](https://user-images.githubusercontent.com/54930248/86572542-0bb75380-bfae-11ea-880a-74f533120121.png) | ![image](https://user-images.githubusercontent.com/54930248/86572771-5c2eb100-bfae-11ea-8f8f-6a76aad90d85.png) |
